@@ -39,7 +39,10 @@ const App = (function(Model, View) {
       clearDisplay();
     } else if (operator === "appendMinus" && numDisplay.innerText !== "0") {
       appendMinus();
-    } 
+    } else if (operator === "modulo") {
+      Model.pushToData(numDisplay.innerText);
+      modulo();
+    }
   }
 
   const clearDisplay = () => {
@@ -56,6 +59,19 @@ const App = (function(Model, View) {
       split.shift();
       numDisplay.innerText = `${split.join("")}`;
     }
+  }
+
+  const modulo = () => {
+    // Clear the display
+    document.querySelector(View.getSelectors().numDisplay).innerText = "0";
+    // Add modulo symbol to data structure
+    Model.pushToData("%");
+    // Push to the data structure
+    setTimeout(() => {
+      // Second value
+      const secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
+      Model.pushToData(secondValue);
+    }, 4000);
   }
 
   return {
