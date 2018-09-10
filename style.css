@@ -1,0 +1,49 @@
+body {
+  background-color: #ddd;
+}
+
+.container {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+#calculator-display {
+  background-color: #000;
+  padding-top: 50px;
+  padding-right: 20px;
+  color: #fff;
+}
+
+.display {
+  font-size: 60px;
+}
+
+.col.s3 {
+  padding: 0;
+}
+
+.col.s6 {
+  padding: 0;
+}
+
+.lighten-2, .lighten-3, .operator {
+  display: inline-block;
+  line-height: normal;
+  vertical-align: middle;
+  font-size: 26px;
+  color: #000;
+}
+
+.operator {
+  color: #fff;
+}
+
+.btn-large {
+  text-align: center;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+}
