@@ -10,24 +10,24 @@
 </head>
 <body>
 
-  <div class="container">
+  <div class="container calculator">
     <div class="row">
       <div id="calculator-display" class="col s12">
         <h4 class="text right"><span class="display">0</span></h4>
       </div>
       <div class="col s12">
-        <div class="row class">
+        <div class="row calculator-keys">
           <div class="col s3">
-            <button class="btn-large grey lighten-2">AC</button>
+            <button class="btn-large grey lighten-2" data-action="clear">AC</button>
           </div>
           <div class="col s3">
-            <button class="btn-large grey lighten-2">+/-</button>
+            <button class="btn-large grey lighten-2" data-action="appendMinus">+/-</button>
           </div>
           <div class="col s3">
-            <button class="btn-large grey lighten-2">%</button>
+            <button class="btn-large grey lighten-2" data-action="modulo">%</button>
           </div>
           <div class="col s3">
-            <button class="btn-large yellow darken-3 operator">/</button>
+            <button class="btn-large yellow darken-3 operator" data-action="divide">/</button>
           </div>
           <div class="col s3">
             <button class="btn-large grey lighten-3">7</button>
@@ -39,7 +39,7 @@
             <button class="btn-large grey lighten-3">9</button>
           </div>
           <div class="col s3">
-            <button class="btn-large yellow darken-3 operator">X</button>
+            <button class="btn-large yellow darken-3 operator" data-action="times">X</button>
           </div>
           <div class="col s3">
             <button class="btn-large grey lighten-3">4</button>
@@ -51,7 +51,7 @@
             <button class="btn-large grey lighten-3">6</button>
           </div>
           <div class="col s3">
-            <button class="btn-large yellow darken-3 operator">-</button>
+            <button class="btn-large yellow darken-3 operator" data-action="minus">-</button>
           </div>
           <div class="col s3">
             <button class="btn-large grey lighten-3">1</button>
@@ -63,7 +63,7 @@
             <button class="btn-large grey lighten-3">3</button>
           </div>
           <div class="col s3">
-            <button class="btn-large yellow darken-3 operator">+</button>
+            <button class="btn-large yellow darken-3 operator" data-action="plus">+</button>
           </div>
           <div class="col s6">
             <button class="btn-large grey lighten-3 text left">0</button>
@@ -72,7 +72,7 @@
             <button class="btn-large grey lighten-3">.</button>
           </div>
           <div class="col s3">
-            <button class="btn-large yellow darken-3 operator">=</button>
+            <button class="btn-large yellow darken-3 operator" data-action="calculate">=</button>
           </div>
         </div>
       </div>
