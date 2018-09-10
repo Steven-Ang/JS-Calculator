@@ -47,3 +47,16 @@ body {
   border: none;
   border-radius: 0;
 }
+
+@media (min-width: 767.98px) {
+  .container {
+    width: 80%;
+  }
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media (min-width: 1199.98px) { 
+  .container {
+    width: 55%;
+  }
+}
