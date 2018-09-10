@@ -4,11 +4,20 @@ const App = (function(Model, View) {
     const ViewSelectors = View.getSelectors();
 
     // Num buttons
-    const numButtons = document.querySelectorAll(".lighten-3");
+    const numBtns = document.querySelectorAll(".lighten-3");
+
+    // Operators buttons
+    const operatorsBtns = document.querySelectorAll("[data-action]");
 
     // Loop through buttons
-    for (let i = 0; i < numButtons.length; i++) {
-      numButtons[i].addEventListener("click", changeDisplay);
+    loopElements(numBtns, changeDisplay);
+    // Loop through buttons
+    loopElements(operatorsBtns, operators);
+  }
+
+  const loopElements = (elements, func) => {
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].addEventListener("click", func);
     }
   }
 
@@ -19,6 +28,14 @@ const App = (function(Model, View) {
       numDisplay.innerText = num;
     } else {
       numDisplay.innerText += num;
+    }
+  }
+
+  const operators = (e) => {
+    const operator = e.target.dataset.action;
+    let numDisplay = document.querySelector(View.getSelectors().numDisplay);
+    if (operator === "clear") {
+      numDisplay.innerText = "0";
     }
   }
 
