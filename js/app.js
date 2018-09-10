@@ -34,16 +34,27 @@ const App = (function(Model, View) {
   const operators = (e) => {
     const operator = e.target.dataset.action;
     let numDisplay = document.querySelector(View.getSelectors().numDisplay);
+    // Check the type of operator
     if (operator === "clear") {
-      numDisplay.innerText = "0";
-    } else if (operator === "appendMinus") {
-      if (parseInt(numDisplay.innerText) > 0) {
-        numDisplay.innerText = `-${numDisplay.innerText}`;
-      } else {
-        let split = numDisplay.innerText.split("");
-        split.shift();
-        numDisplay.innerText = `${split.join("")}`;
-      }
+      clearDisplay();
+    } else if (operator === "appendMinus" && numDisplay.innerText !== "0") {
+      appendMinus();
+    } 
+  }
+
+  const clearDisplay = () => {
+    let numDisplay = document.querySelector(View.getSelectors().numDisplay);
+    numDisplay.innerText = "0";
+  }
+
+  const appendMinus = () => {
+    let numDisplay = document.querySelector(View.getSelectors().numDisplay);
+    if (parseInt(numDisplay.innerText) > 0) {
+      numDisplay.innerText = `-${numDisplay.innerText}`;
+    } else {
+      let split = numDisplay.innerText.split("");
+      split.shift();
+      numDisplay.innerText = `${split.join("")}`;
     }
   }
 
