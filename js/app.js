@@ -42,12 +42,17 @@ const App = (function(Model, View) {
     } else if (operator === "modulo") {
       Model.pushToData(numDisplay.innerText);
       modulo();
+    } else if (operator === "calculate") {
+      calculate();
     }
   }
 
   const clearDisplay = () => {
+    // Reset the view
     let numDisplay = document.querySelector(View.getSelectors().numDisplay);
     numDisplay.innerText = "0";
+    // Reset the model
+    Model.resetData();
   }
 
   const appendMinus = () => {
@@ -76,13 +81,17 @@ const App = (function(Model, View) {
     setTimeout(() => {
       Model.pushToData(secondValue);
       clearInterval(updateVal);
-    }, 5000);
+    }, 1800);
+  }
+
+  const calculate = () => {
+    View.setDisplay(Model.calculate());
   }
 
   return {
     init: () => {
       // Set the display value to 0
-      View.setDisplay();
+      View.clearDisplay();
 
       // Load events
       loadEventListeners();

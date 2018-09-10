@@ -1,5 +1,5 @@
 const Model = (function() {
-  const calculations = [];
+  let calculations = [];
 
   return {
     pushToData: (calc) => {
@@ -11,6 +11,9 @@ const Model = (function() {
     calculate: () => {
       let calc = Model.getData().join(" ");
       return eval(calc);
+    },
+    resetData: () => {
+      calculations = [];
     },
     logData: () => {
       console.log(calculations);
