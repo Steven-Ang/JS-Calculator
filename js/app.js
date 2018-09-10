@@ -36,6 +36,14 @@ const App = (function(Model, View) {
     let numDisplay = document.querySelector(View.getSelectors().numDisplay);
     if (operator === "clear") {
       numDisplay.innerText = "0";
+    } else if (operator === "appendMinus") {
+      if (parseInt(numDisplay.innerText) > 0) {
+        numDisplay.innerText = `-${numDisplay.innerText}`;
+      } else {
+        let split = numDisplay.innerText.split("");
+        split.shift();
+        numDisplay.innerText = `${split.join("")}`;
+      }
     }
   }
 
