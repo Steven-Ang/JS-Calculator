@@ -1,7 +1,9 @@
 const App = (function(Model, View) {
   return {
     init: () => {
-      console.log("Hello");
+      View.setDisplay();
+
+      console.log("Initializing App");
     }
   }
 })(Model, View);

@@ -1,3 +1,5 @@
 const Model = (function() {
-  
+  return {
+    
+  }
 })();
