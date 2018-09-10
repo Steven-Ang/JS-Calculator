@@ -66,12 +66,17 @@ const App = (function(Model, View) {
     document.querySelector(View.getSelectors().numDisplay).innerText = "0";
     // Add modulo symbol to data structure
     Model.pushToData("%");
+    let secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
     // Push to the data structure
-    setTimeout(() => {
+    let updateVal = setInterval(() => {
       // Second value
-      const secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
+      secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
+      console.log(secondValue);
+    }, 100);
+    setTimeout(() => {
       Model.pushToData(secondValue);
-    }, 4000);
+      clearInterval(updateVal);
+    }, 5000);
   }
 
   return {
