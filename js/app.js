@@ -45,7 +45,10 @@ const App = (function(Model, View) {
         modulo();
       }
     } else if (operator === "divide") {
-      
+      Model.pushToData(numDisplay.innerText);
+      if (Model.getData().length != 0) {
+        divide();
+      }
     } else if (operator === "times") {
       Model.pushToData(numDisplay.innerText);
       if (Model.getData().length != 0) {
@@ -92,6 +95,24 @@ const App = (function(Model, View) {
     document.querySelector(View.getSelectors().numDisplay).innerText = "0";
     // Add modulo symbol to data structure
     Model.pushToData("%");
+    let secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
+    // Push to the data structure
+    let updateVal = setInterval(() => {
+      // Second value
+      secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
+      console.log(secondValue);
+    }, 100);
+    setTimeout(() => {
+      Model.pushToData(secondValue);
+      clearInterval(updateVal);
+    }, 1800);
+  }
+
+  const divide = () => {
+    // Clear the display
+    document.querySelector(View.getSelectors().numDisplay).innerText = "0";
+    // Add modulo symbol to data structure
+    Model.pushToData("/");
     let secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
     // Push to the data structure
     let updateVal = setInterval(() => {
