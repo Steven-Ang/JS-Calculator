@@ -41,9 +41,13 @@ const App = (function(Model, View) {
       appendMinus();
     } else if (operator === "modulo") {
       Model.pushToData(numDisplay.innerText);
-      modulo();
+      if (Model.getData().length != 0) {
+        modulo();
+      }
     } else if (operator === "calculate") {
-      calculate();
+      if (Model.getData().length > 2) {
+        calculate();
+      }
     }
   }
 
