@@ -34,35 +34,31 @@ const App = (function(Model, View) {
   const operators = (e) => {
     const operator = e.target.dataset.action;
     let numDisplay = document.querySelector(View.getSelectors().numDisplay);
+
     // Check the type of operator
     if (operator === "clear") {
       clearDisplay();
     } else if (operator === "appendMinus" && numDisplay.innerText !== "0") {
       appendMinus();
     } else if (operator === "modulo") {
-      Model.pushToData(numDisplay.innerText);
-      if (Model.getData().length != 0) {
-        modulo();
+      if (numDisplay.innerText !== "0") {
+        appendToArr("%", numDisplay.innerText);
       }
     } else if (operator === "divide") {
-      Model.pushToData(numDisplay.innerText);
-      if (Model.getData().length != 0) {
-        divide();
+      if (numDisplay.innerText !== "0") {
+        appendToArr("/", numDisplay.innerText);
       }
     } else if (operator === "times") {
-      Model.pushToData(numDisplay.innerText);
-      if (Model.getData().length != 0) {
-        times();
+      if (numDisplay.innerText !== "0") {
+        appendToArr("*", numDisplay.innerText);
       }
     } else if (operator === "minus") {
-      Model.pushToData(numDisplay.innerText);
-      if (Model.getData().length != 0) {
-        subtract();
+      if (numDisplay.innerText !== "0") {
+        appendToArr("-", numDisplay.innerText);
       }
     } else if (operator === "plus") {
-      Model.pushToData(numDisplay.innerText);
-      if (Model.getData().length != 0) {
-        addition();
+      if (numDisplay.innerText !== "0") {
+        appendToArr("+", numDisplay.innerText);
       }
     } else if (operator === "calculate") {
       if (Model.getData().length > 2) {
@@ -90,83 +86,13 @@ const App = (function(Model, View) {
     }
   }
 
-  const modulo = () => {
+  const appendToArr = (symbol, firstVal) => {
+    // Push to the array
+    Model.pushToData(firstVal);
     // Clear the display
     document.querySelector(View.getSelectors().numDisplay).innerText = "0";
     // Add modulo symbol to data structure
-    Model.pushToData("%");
-    let secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
-    // Push to the data structure
-    let updateVal = setInterval(() => {
-      // Second value
-      secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
-      console.log(secondValue);
-    }, 100);
-    setTimeout(() => {
-      Model.pushToData(secondValue);
-      clearInterval(updateVal);
-    }, 1800);
-  }
-
-  const divide = () => {
-    // Clear the display
-    document.querySelector(View.getSelectors().numDisplay).innerText = "0";
-    // Add modulo symbol to data structure
-    Model.pushToData("/");
-    let secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
-    // Push to the data structure
-    let updateVal = setInterval(() => {
-      // Second value
-      secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
-      console.log(secondValue);
-    }, 100);
-    setTimeout(() => {
-      Model.pushToData(secondValue);
-      clearInterval(updateVal);
-    }, 1800);
-  }
-
-  const times = () => {
-    // Clear the display
-    document.querySelector(View.getSelectors().numDisplay).innerText = "0";
-    // Add modulo symbol to data structure
-    Model.pushToData("*");
-    let secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
-    // Push to the data structure
-    let updateVal = setInterval(() => {
-      // Second value
-      secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
-      console.log(secondValue);
-    }, 100);
-    setTimeout(() => {
-      Model.pushToData(secondValue);
-      clearInterval(updateVal);
-    }, 1800);
-  }
-
-  const subtract = () => {
-    // Clear the display
-    document.querySelector(View.getSelectors().numDisplay).innerText = "0";
-    // Add modulo symbol to data structure
-    Model.pushToData("-");
-    let secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
-    // Push to the data structure
-    let updateVal = setInterval(() => {
-      // Second value
-      secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
-      console.log(secondValue);
-    }, 100);
-    setTimeout(() => {
-      Model.pushToData(secondValue);
-      clearInterval(updateVal);
-    }, 1800);
-  }
-
-  const addition = () => {
-    // Clear the display
-    document.querySelector(View.getSelectors().numDisplay).innerText = "0";
-    // Add modulo symbol to data structure
-    Model.pushToData("+");
+    Model.pushToData(symbol);
     let secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
     // Push to the data structure
     let updateVal = setInterval(() => {

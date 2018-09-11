@@ -2,6 +2,10 @@ body {
   background-color: #ddd;
 }
 
+#red {
+  background-color: red !important;
+}
+
 .container {
   position: absolute;
   top: 40%;
