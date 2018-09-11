@@ -87,23 +87,38 @@ const App = (function(Model, View) {
   }
 
   const appendToArr = (symbol, firstVal) => {
-    // Push to the array
-    Model.pushToData(firstVal);
-    // Clear the display
-    document.querySelector(View.getSelectors().numDisplay).innerText = "0";
-    // Add modulo symbol to data structure
-    Model.pushToData(symbol);
-    let secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
-    // Push to the data structure
-    let updateVal = setInterval(() => {
-      // Second value
-      secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
-      console.log(secondValue);
-    }, 100);
-    setTimeout(() => {
-      Model.pushToData(secondValue);
-      clearInterval(updateVal);
-    }, 1800);
+    if (Model.getData().length >= 3) {
+      Model.pushToData(symbol);
+      // Clear the display
+      document.querySelector(View.getSelectors().numDisplay).innerText = "0";
+      let secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
+      // Push to the data structure
+      let updateVal = setInterval(() => {
+        // Second value
+        secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
+      }, 100);
+      setTimeout(() => {
+        Model.pushToData(secondValue);
+        clearInterval(updateVal);
+      }, 1800);
+    } else {
+      // Push to the array
+      Model.pushToData(firstVal);
+      // Clear the display
+      document.querySelector(View.getSelectors().numDisplay).innerText = "0";
+      // Add modulo symbol to data structure
+      Model.pushToData(symbol);
+      let secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
+      // Push to the data structure
+      let updateVal = setInterval(() => {
+        // Second value
+        secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
+      }, 100);
+      setTimeout(() => {
+        Model.pushToData(secondValue);
+        clearInterval(updateVal);
+      }, 1800);
+    }
   }
 
   const calculate = () => {
