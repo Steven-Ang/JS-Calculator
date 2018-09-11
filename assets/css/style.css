@@ -2,16 +2,12 @@ body {
   background-color: #ddd;
 }
 
-#red {
-  background-color: red !important;
-}
-
 .container {
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: 95%;
 }
 
 #calculator-display {
@@ -54,15 +50,21 @@ body {
   border-radius: 0;
 }
 
-@media (min-width: 767.98px) {
+@media (min-width: 470px) {
   .container {
     width: 80%;
+  }
+}
+
+@media (min-width: 680px) {
+  .container {
+    width: 60%;
   }
 }
 
 /* Large devices (desktops, less than 1200px) */
 @media (min-width: 1199.98px) { 
   .container {
-    width: 55%;
+    width: 30%;
   }
 }
