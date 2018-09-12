@@ -6,10 +6,10 @@ const App = (function(Model, View) {
     const ViewSelectors = View.getSelectors();
 
     // Num buttons
-    const numBtns = document.querySelectorAll(".lighten-3");
+    const numBtns = document.querySelectorAll(ViewSelectors.num);
 
     // Operators buttons
-    const operatorsBtns = document.querySelectorAll("[data-action]");
+    const operatorsBtns = document.querySelectorAll(ViewSelectors.operators);
 
     // Loop through buttons
     loopElements(numBtns, changeDisplay);
