@@ -38,6 +38,7 @@ const App = (function(Model, View) {
     // Check the type of operator
     if (operator === "clear") {
       clearDisplay();
+      Model.resetData();
     } else if (operator === "appendMinus" && output.innerText !== "0") {
       appendMinus();
     } else if (operator === "modulo") {
@@ -70,6 +71,9 @@ const App = (function(Model, View) {
   const clearDisplay = () => {
     // Reset the view
     output.innerText = "0";
+  }
+
+  const resetArr = () => {
     // Reset the model
     Model.resetData();
   }
@@ -88,7 +92,7 @@ const App = (function(Model, View) {
     if (Model.getData().length >= 3) {
       Model.pushToData(symbol);
       // Clear the display
-      document.querySelector(View.getSelectors().numDisplay).innerText = "0";
+      clearDisplay();
       let secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
       // Push to the data structure
       let updateVal = setInterval(() => {
@@ -103,7 +107,7 @@ const App = (function(Model, View) {
       // Push to the array
       Model.pushToData(firstVal);
       // Clear the display
-      document.querySelector(View.getSelectors().numDisplay).innerText = "0";
+      clearDisplay();
       // Add modulo symbol to data structure
       Model.pushToData(symbol);
       let secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
