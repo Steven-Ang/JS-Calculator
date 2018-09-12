@@ -1,6 +1,8 @@
 const View = (function() {
   const ViewSelectors = {
     calculator: ".calculator",
+    num: ".num",
+    operators: "[data-action]",
     numDisplay: ".display",
     keysList: ".calculator-keys"
   };

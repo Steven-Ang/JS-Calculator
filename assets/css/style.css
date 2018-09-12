@@ -30,7 +30,7 @@ body {
   padding: 0;
 }
 
-.lighten-2, .lighten-3, .operator {
+.num, .special-operator, .operator {
   display: inline-block;
   line-height: normal;
   vertical-align: middle;
