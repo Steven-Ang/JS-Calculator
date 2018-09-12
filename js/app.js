@@ -1,4 +1,6 @@
 const App = (function(Model, View) {
+  const output = document.querySelector(View.getSelectors().numDisplay);
+
   const loadEventListeners = function() {
     // Get selectors
     const ViewSelectors = View.getSelectors();
@@ -23,42 +25,40 @@ const App = (function(Model, View) {
 
   const changeDisplay = (e) => {
     let num = e.target.innerText;
-    let numDisplay = document.querySelector(View.getSelectors().numDisplay);
-    if (numDisplay.innerText === "0") {
-      numDisplay.innerText = num;
+    if (output.innerText === "0") {
+      output.innerText = num;
     } else {
-      numDisplay.innerText += num;
+      output.innerText += num;
     }
   }
 
   const operators = (e) => {
     const operator = e.target.dataset.action;
-    let numDisplay = document.querySelector(View.getSelectors().numDisplay);
 
     // Check the type of operator
     if (operator === "clear") {
       clearDisplay();
-    } else if (operator === "appendMinus" && numDisplay.innerText !== "0") {
+    } else if (operator === "appendMinus" && output.innerText !== "0") {
       appendMinus();
     } else if (operator === "modulo") {
-      if (numDisplay.innerText !== "0") {
-        appendToArr("%", numDisplay.innerText);
+      if (output.innerText !== "0") {
+        appendToArr("%", output.innerText);
       }
     } else if (operator === "divide") {
-      if (numDisplay.innerText !== "0") {
-        appendToArr("/", numDisplay.innerText);
+      if (output.innerText !== "0") {
+        appendToArr("/", output.innerText);
       }
     } else if (operator === "times") {
-      if (numDisplay.innerText !== "0") {
-        appendToArr("*", numDisplay.innerText);
+      if (output.innerText !== "0") {
+        appendToArr("*", output.innerText);
       }
     } else if (operator === "minus") {
-      if (numDisplay.innerText !== "0") {
-        appendToArr("-", numDisplay.innerText);
+      if (output.innerText !== "0") {
+        appendToArr("-", output.innerText);
       }
     } else if (operator === "plus") {
-      if (numDisplay.innerText !== "0") {
-        appendToArr("+", numDisplay.innerText);
+      if (output.innerText !== "0") {
+        appendToArr("+", output.innerText);
       }
     } else if (operator === "calculate") {
       if (Model.getData().length > 2) {
@@ -69,20 +69,18 @@ const App = (function(Model, View) {
 
   const clearDisplay = () => {
     // Reset the view
-    let numDisplay = document.querySelector(View.getSelectors().numDisplay);
-    numDisplay.innerText = "0";
+    output.innerText = "0";
     // Reset the model
     Model.resetData();
   }
 
   const appendMinus = () => {
-    let numDisplay = document.querySelector(View.getSelectors().numDisplay);
-    if (parseInt(numDisplay.innerText) > 0) {
-      numDisplay.innerText = `-${numDisplay.innerText}`;
+    if (parseInt(output.innerText) > 0) {
+      output.innerText = `-${output.innerText}`;
     } else {
-      let split = numDisplay.innerText.split("");
+      let split = output.innerText.split("");
       split.shift();
-      numDisplay.innerText = `${split.join("")}`;
+      output.innerText = `${split.join("")}`;
     }
   }
 
