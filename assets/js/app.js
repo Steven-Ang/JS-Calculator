@@ -93,40 +93,21 @@ const App = (function(Model, View) {
         Model.pushToData(symbol);
         // Clear the display
         clearDisplay();
-        let secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
-        // Push to the data structure
-        let updateVal = setInterval(() => {
-          // Second value
-          secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
-        }, 100);
-        setTimeout(() => {
-          Model.pushToData(secondValue);
-          clearInterval(updateVal);
-        }, 1800);
       } else {
         // Push to the array
         Model.pushToData(firstVal);
         // Clear the display
         clearDisplay();
-        // Add modulo symbol to data structure
         Model.pushToData(symbol);
-        let secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
-        // Push to the data structure
-        let updateVal = setInterval(() => {
-          // Second value
-          secondValue = document.querySelector(View.getSelectors().numDisplay).innerText;
-        }, 100);
-        setTimeout(() => {
-          Model.pushToData(secondValue);
-          clearInterval(updateVal);
-        }, 1800);
       }
     }
   }
 
   const calculate = () => {
-    if (Model.getData().length > 2) {
+    if (Model.getData().length >= 2) {
+      Model.pushToData(output.innerText);
       View.setDisplay(Model.calculate());
+      resetArr();
     }
   }
 
