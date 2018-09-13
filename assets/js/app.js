@@ -90,6 +90,9 @@ const App = (function(Model, View) {
   const appendToArr = (symbol, firstVal) => {
     if (output.innerText !== "0") {
       if (Model.getData().length >= 3) {
+        if (firstVal !== "0") {
+          Model.pushToData(firstVal);
+        }
         Model.pushToData(symbol);
         // Clear the display
         clearDisplay();

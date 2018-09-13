@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #ddd;
 }
@@ -19,7 +23,9 @@ body {
 }
 
 .display {
+  display: block;
   font-size: 60px;
+  padding-bottom: 6px;
 }
 
 .col.s3 {
