@@ -30,6 +30,13 @@ body {
   padding: 0;
 }
 
+.btn-large {
+  text-align: center;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+}
+
 .num, .special-operator, .operator {
   display: inline-block;
   line-height: normal;
@@ -41,13 +48,6 @@ body {
 .operator {
   color: #fff;
   font-size: 40px;
-}
-
-.btn-large {
-  text-align: center;
-  width: 100%;
-  border: none;
-  border-radius: 0;
 }
 
 @media (min-width: 470px) {
